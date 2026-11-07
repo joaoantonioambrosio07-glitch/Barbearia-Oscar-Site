@@ -46,7 +46,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#080A0D] text-[#F7F7F5] flex flex-col selection:bg-[#087FE8] selection:text-white overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#050806] text-[#FFFFFF] flex flex-col selection:bg-[#D9A52B] selection:text-[#050806] overflow-x-hidden">
       {/* Floating Capsule Header */}
       <Navbar onOpenBooking={() => handleOpenBooking()} />
 
@@ -58,7 +58,7 @@ export default function App() {
           onViewServices={() => scrollToSection('servicos')}
         />
 
-        {/* 2. Brief Introduction to Barbearia Oscar */}
+        {/* 2. Brief Introduction to Clássico Barber Shop */}
         <AboutSection onOpenBooking={() => handleOpenBooking()} />
 
         {/* 3. 3 Prioritized Services (Corte, Barba, Combo) in Reduced Proportions */}

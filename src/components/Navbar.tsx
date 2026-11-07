@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MessageSquare, Menu, X, ArrowUpRight, Phone, Instagram, Mail } from 'lucide-react';
+import { Calendar, MessageSquare, Menu, X, ArrowUpRight, Phone, Instagram } from 'lucide-react';
 import { BARBERSHOP_CONTACT } from '../data/barbershopData';
 
 interface NavbarProps {
   onOpenBooking: (serviceId?: string, barberId?: string) => void;
 }
+
+// Custom TikTok icon for precision branding
+const TikTokIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.87-4.49V8.6a8.28 8.28 0 0 0 5.2 1.84V7.01a4.84 4.84 0 0 1-1.3-.32Z" />
+  </svg>
+);
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -52,12 +64,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 sm:pt-6 pointer-events-none transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-5 pointer-events-none transition-all duration-300">
       <div
-        className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-6 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-300 ${
+        className={`pointer-events-auto flex items-center justify-between gap-2 sm:gap-6 px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full transition-all duration-300 w-full max-w-7xl ${
           scrolled
-            ? 'bg-[#080A0D]/90 backdrop-blur-xl border border-[#0757A5]/30 shadow-[0_16px_40px_rgba(8,45,140,0.25)]'
-            : 'bg-[#080A0D]/70 backdrop-blur-md border border-[#0757A5]/20'
+            ? 'bg-[#050806]/95 backdrop-blur-xl border border-[#D9A52B]/40 shadow-[0_12px_40px_rgba(0,0,0,0.85)] ring-1 ring-[#D9A52B]/20'
+            : 'bg-[#050806]/80 backdrop-blur-md border border-[#D9A52B]/25'
         }`}
       >
         {/* Brand / Logo */}
@@ -67,32 +79,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             e.preventDefault();
             scrollTo('#inicio');
           }}
-          className="flex items-center gap-3 text-white group"
+          className="flex items-center gap-2.5 sm:gap-3 text-white group"
         >
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#087FE8]/60 shadow-[0_0_15px_rgba(8,127,232,0.5)] transition-transform group-hover:scale-105 shrink-0 bg-[#082D8C]">
+          {/* Logo container preserving exact proportions */}
+          <div className="relative h-10 w-16 sm:h-11 sm:w-20 flex items-center justify-center shrink-0 transition-transform group-hover:scale-105">
             <img
-              src="/src/assets/images/barbearia_oscar_logo_1791927922669.jpg"
-              alt="Logo Barbearia Oscar"
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
+              src={BARBERSHOP_CONTACT.logoUrl}
+              alt="Logótipo Oficial Clássico Barber Shop"
+              className="h-full w-full object-contain filter drop-shadow-[0_0_8px_rgba(217,165,43,0.5)]"
               loading="eager"
               decoding="async"
-              width={40}
-              height={40}
+              width={80}
+              height={44}
             />
           </div>
+
           <div className="flex flex-col">
-            <span className="font-['Syne',sans-serif] text-sm font-bold tracking-widest uppercase text-[#F7F7F5] leading-none">
-              BARBEARIA OSCAR
+            <span className="font-['Cinzel',serif] text-xs sm:text-sm font-bold tracking-wider text-[#FFFFFF] leading-tight group-hover:text-[#F2C45A] transition-colors">
+              CLÁSSICO BARBER SHOP
             </span>
-            <span className="text-[9px] tracking-[0.25em] text-[#087FE8] font-semibold uppercase mt-0.5">
-              TRADIÇÃO & ESTILO
+            <span className="text-[8px] sm:text-[9px] tracking-[0.2em] text-[#D9A52B] font-semibold uppercase">
+              ZANGO 2 • ANGOLA
             </span>
           </div>
         </a>
 
         {/* Center Desktop Floating Capsule Menu */}
-        <nav className="hidden md:flex items-center gap-1 bg-black/50 p-1 rounded-full border border-[#0757A5]/20">
+        <nav className="hidden lg:flex items-center gap-1 bg-[#171A18]/80 p-1 rounded-full border border-[#D9A52B]/25">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -103,10 +116,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   e.preventDefault();
                   scrollTo(link.href);
                 }}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 uppercase whitespace-nowrap ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-200 uppercase whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#087FE8] text-[#F7F7F5] shadow-[0_0_15px_rgba(8,127,232,0.35)]'
-                    : 'text-zinc-400 hover:text-[#F7F7F5] hover:bg-white/[0.06]'
+                    ? 'bg-gradient-to-r from-[#D9A52B] to-[#F2C45A] text-[#050806] font-bold shadow-[0_0_15px_rgba(217,165,43,0.4)]'
+                    : 'text-zinc-300 hover:text-[#FFFFFF] hover:bg-white/[0.06]'
                 }`}
               >
                 {link.label}
@@ -116,39 +129,65 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         </nav>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* WhatsApp Direct */}
           <a
             href={BARBERSHOP_CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             title={`Atendimento via WhatsApp: ${BARBERSHOP_CONTACT.phoneDisplay}`}
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#087FE8]/20 border border-white/[0.08] hover:border-[#087FE8]/40 flex items-center justify-center text-zinc-300 hover:text-[#087FE8] transition-colors"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#D9A52B]/20 border border-[#D9A52B]/30 hover:border-[#D9A52B] flex items-center justify-center text-[#D9A52B] hover:text-[#FFFFFF] transition-colors"
           >
             <MessageSquare className="w-4 h-4" />
           </a>
 
+          {/* Instagram */}
+          <a
+            href={BARBERSHOP_CONTACT.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Instagram ${BARBERSHOP_CONTACT.instagram}`}
+            className="hidden sm:flex w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#D9A52B]/20 border border-[#D9A52B]/30 hover:border-[#D9A52B] items-center justify-center text-[#D9A52B] hover:text-[#FFFFFF] transition-colors"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+
+          {/* TikTok */}
+          <a
+            href={BARBERSHOP_CONTACT.tiktokUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="TikTok Clássico Barber Shop"
+            className="hidden md:flex w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#D9A52B]/20 border border-[#D9A52B]/30 hover:border-[#D9A52B] items-center justify-center text-[#D9A52B] hover:text-[#FFFFFF] transition-colors"
+          >
+            <TikTokIcon className="w-3.5 h-3.5" />
+          </a>
+
+          {/* Direct Phone Call */}
           <a
             href={BARBERSHOP_CONTACT.telUrl}
             title={`Ligar: ${BARBERSHOP_CONTACT.phoneDisplay}`}
-            className="hidden sm:flex w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#087FE8]/20 border border-white/[0.08] hover:border-[#087FE8]/40 items-center justify-center text-zinc-300 hover:text-[#087FE8] transition-colors"
+            className="hidden xs:flex sm:flex w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/[0.05] hover:bg-[#D9A52B]/20 border border-[#D9A52B]/30 hover:border-[#D9A52B] items-center justify-center text-[#D9A52B] hover:text-[#FFFFFF] transition-colors"
           >
-            <Phone className="w-4 h-4" />
+            <Phone className="w-3.5 h-3.5" />
           </a>
 
+          {/* Main CTA: Agendar Agora */}
           <button
             id="nav-agendar-cta"
             onClick={() => onOpenBooking()}
-            className="group flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#087FE8] hover:bg-[#0757A5] text-[#F7F7F5] font-semibold text-xs tracking-wider uppercase transition-all duration-200 shadow-[0_0_20px_rgba(22,141,224,0.3)] hover:shadow-[0_0_25px_rgba(22,141,224,0.5)] cursor-pointer"
+            className="group flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#D9A52B] via-[#F2C45A] to-[#D9A52B] hover:brightness-110 text-[#050806] font-extrabold text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_0_20px_rgba(217,165,43,0.35)] cursor-pointer"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#F7F7F5]" />
-            <span className="hidden xs:inline">AGENDAR</span>
+            <Calendar className="w-3.5 h-3.5 text-[#050806]" />
+            <span className="hidden xs:inline">AGENDAR AGORA</span>
+            <span className="xs:hidden">AGENDAR</span>
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-8 h-8 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors"
+            className="lg:hidden w-8 h-8 rounded-full bg-white/[0.05] border border-[#D9A52B]/30 flex items-center justify-center text-[#D9A52B] hover:text-[#FFFFFF] transition-colors"
             aria-label="Abrir menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -158,7 +197,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-x-4 top-20 bg-[#080A0D]/95 backdrop-blur-2xl border border-[#0757A5]/30 rounded-2xl p-5 shadow-2xl flex flex-col gap-4 md:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="pointer-events-auto fixed inset-x-3 top-18 sm:top-20 bg-[#050806]/98 backdrop-blur-2xl border border-[#D9A52B]/40 rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.95)] flex flex-col gap-4 lg:hidden animate-in fade-in slide-in-from-top-4 duration-200">
+          
+          {/* Mobile Drawer Header with Emblem */}
+          <div className="flex items-center gap-3 pb-3 border-b border-[#D9A52B]/20">
+            <img
+              src={BARBERSHOP_CONTACT.logoUrl}
+              alt="Clássico Barber Shop"
+              className="h-9 w-14 object-contain filter drop-shadow-[0_0_6px_rgba(217,165,43,0.5)]"
+            />
+            <div>
+              <span className="font-['Cinzel',serif] text-xs font-bold text-white block">
+                CLÁSSICO BARBER SHOP
+              </span>
+              <span className="text-[9px] text-[#D9A52B] font-mono">
+                ZANGO 2 • ANGOLA
+              </span>
+            </div>
+          </div>
+
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <a
@@ -170,7 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 }}
                 className={`px-3.5 py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase flex items-center justify-between ${
                   activeSection === link.id
-                    ? 'bg-[#087FE8] text-[#F7F7F5] shadow-[0_0_15px_rgba(22,141,224,0.3)]'
+                    ? 'bg-gradient-to-r from-[#D9A52B] to-[#F2C45A] text-[#050806] font-bold shadow-[0_0_15px_rgba(217,165,43,0.3)]'
                     : 'text-zinc-300 hover:bg-white/[0.05]'
                 }`}
               >
@@ -181,40 +238,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           </div>
 
           {/* Mobile Contact Quick Actions */}
-          <div className="py-2.5 px-3 rounded-xl bg-black/40 border border-[#0757A5]/25 flex flex-col gap-2 text-xs">
+          <div className="py-2.5 px-3 rounded-xl bg-[#171A18] border border-[#D9A52B]/25 flex flex-col gap-2 text-xs">
             <a
               href={BARBERSHOP_CONTACT.telUrl}
-              className="flex items-center gap-2 text-zinc-300 hover:text-[#087FE8] transition-colors"
+              className="flex items-center gap-2 text-zinc-300 hover:text-[#F2C45A] transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#087FE8]" />
+              <Phone className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span className="font-mono">{BARBERSHOP_CONTACT.phoneDisplay}</span>
             </a>
             <a
               href={BARBERSHOP_CONTACT.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-zinc-300 hover:text-[#087FE8] transition-colors"
+              className="flex items-center gap-2 text-zinc-300 hover:text-[#F2C45A] transition-colors"
             >
-              <Instagram className="w-3.5 h-3.5 text-[#087FE8]" />
+              <Instagram className="w-3.5 h-3.5 text-[#D9A52B]" />
               <span>{BARBERSHOP_CONTACT.instagram}</span>
             </a>
             <a
-              href={BARBERSHOP_CONTACT.emailUrl}
-              className="flex items-center gap-2 text-zinc-300 hover:text-[#087FE8] transition-colors"
+              href={BARBERSHOP_CONTACT.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-zinc-300 hover:text-[#F2C45A] transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#087FE8]" />
-              <span className="truncate">{BARBERSHOP_CONTACT.email}</span>
+              <TikTokIcon className="w-3.5 h-3.5 text-[#D9A52B]" />
+              <span>TikTok Clássico Barber Shop</span>
             </a>
           </div>
 
           <div className="pt-2 border-t border-white/10 flex items-center justify-between">
-            <span className="text-[11px] text-zinc-400">Seg - Sáb: 09h às 20h30</span>
+            <span className="text-[11px] text-zinc-400">Seg - Sáb: 08h às 20h30</span>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="px-4 py-2 rounded-full bg-[#087FE8] hover:bg-[#0757A5] text-[#F7F7F5] font-semibold text-xs tracking-wider uppercase"
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-[#D9A52B] to-[#F2C45A] text-[#050806] font-bold text-xs tracking-wider uppercase shadow-[0_0_15px_rgba(217,165,43,0.3)]"
             >
               AGENDAR AGORA
             </button>

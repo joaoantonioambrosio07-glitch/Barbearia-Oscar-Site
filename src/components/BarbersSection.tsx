@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, ArrowRight, UserCheck, Scissors } from 'lucide-react';
+import { Star, ArrowRight, UserCheck } from 'lucide-react';
 import { BARBERS } from '../data/barbershopData';
 
 interface BarbersSectionProps {
@@ -8,45 +8,45 @@ interface BarbersSectionProps {
 
 export const BarbersSection: React.FC<BarbersSectionProps> = ({ onSelectBarber }) => {
   return (
-    <section id="equipe" className="relative py-12 sm:py-16 bg-[#080A0D]/85 backdrop-blur-sm border-t border-[#0757A5]/25">
-      {/* Background radial glow */}
+    <section id="equipe" className="relative py-14 sm:py-20 bg-[#050806] border-t border-[#D9A52B]/20">
+      {/* Background ambient radiance */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 w-72 h-72 rounded-full bg-[#082D8C]/[0.07] blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 rounded-full bg-[#D9A52B]/[0.05] blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-3">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 mb-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#087FE8] shadow-[0_0_8px_#087FE8]" />
-              <span className="text-[11px] font-mono tracking-widest text-[#087FE8] uppercase font-semibold">
-                MESTRES DA TESOURA & NAVALHA
+            <div className="inline-flex items-center gap-2 mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#D9A52B] shadow-[0_0_8px_#D9A52B]" />
+              <span className="text-[11px] font-mono tracking-widest text-[#F2C45A] uppercase font-bold">
+                MESTRES DA ARTE & TRADIÇÃO
               </span>
             </div>
-            <h2 className="font-['Syne',sans-serif] text-2xl sm:text-3xl font-extrabold text-[#F7F7F5] tracking-tight uppercase">
-              NOSSOS BARBEIROS
+            <h2 className="font-['Cinzel',serif] text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+              A NOSSA EQUIPA
             </h2>
           </div>
-          <p className="text-xs text-zinc-400 max-w-md font-normal leading-relaxed">
-            Profissionais especializados com formação internacional e rigor em visagismo masculino.
+          <p className="text-xs sm:text-sm text-zinc-400 max-w-md font-normal leading-relaxed">
+            Profissionais dedicados à excelência, com técnica apurada em cortes clássicos, barboterapia e visagismo masculino em Zango 2.
           </p>
         </div>
 
-        {/* 3 Compact Barber Cards in Reduced Proportion */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+        {/* 3 Compact Barber Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {BARBERS.map((barber) => (
             <div
               key={barber.id}
-              className="group relative rounded-2xl bg-[#080A0D]/90 backdrop-blur-md border border-[#0757A5]/30 hover:border-[#087FE8]/60 p-3.5 sm:p-4 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(8,45,140,0.3)] overflow-hidden"
+              className="group relative rounded-2xl bg-[#171A18] border border-[#D9A52B]/30 hover:border-[#D9A52B] p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.9)] overflow-hidden"
             >
               {/* Top ambient hover line */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#087FE8] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#F2C45A] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div>
-                {/* Reduced Proportion Barber Portrait Frame */}
-                <div className="relative h-44 sm:h-48 w-full rounded-xl overflow-hidden mb-3 bg-black/60 border border-[#0757A5]/25">
+                {/* Barber Portrait Frame */}
+                <div className="relative h-48 sm:h-52 w-full rounded-xl overflow-hidden mb-4 bg-black/60 border border-[#D9A52B]/20">
                   <img
                     src={barber.image}
                     alt={barber.name}
@@ -55,50 +55,50 @@ export const BarbersSection: React.FC<BarbersSectionProps> = ({ onSelectBarber }
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080A0D]/95 via-transparent to-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171A18] via-transparent to-black/25" />
 
                   {/* Rating Badge */}
-                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-md bg-black/75 backdrop-blur-sm border border-white/10 text-[10px] font-mono text-[#087FE8] flex items-center gap-1 font-bold">
-                    <Star className="w-3 h-3 fill-[#087FE8] text-[#087FE8]" />
+                  <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-[#050806]/85 backdrop-blur-sm border border-[#D9A52B]/40 text-[10px] font-mono text-[#F2C45A] flex items-center gap-1 font-bold">
+                    <Star className="w-3 h-3 fill-[#D9A52B] text-[#D9A52B]" />
                     <span>{barber.rating}</span>
                   </div>
 
                   {/* Experience Years */}
-                  <div className="absolute bottom-2 left-2 text-[10px] font-mono text-zinc-300 bg-black/75 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
-                    {barber.experienceYears} anos exp.
+                  <div className="absolute bottom-2.5 left-2.5 text-[10px] font-mono text-zinc-300 bg-[#050806]/80 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-[#D9A52B]/20 font-semibold">
+                    {barber.experienceYears} anos de exp.
                   </div>
                 </div>
 
                 {/* Info */}
-                <div className="mb-2">
-                  <h3 className="font-['Syne',sans-serif] text-sm sm:text-base font-bold text-[#F7F7F5] uppercase">
+                <div className="mb-3">
+                  <h3 className="font-['Cinzel',serif] text-base font-bold text-[#FFFFFF] uppercase">
                     {barber.name}
                   </h3>
-                  <span className="text-[10px] text-[#087FE8] font-mono block font-semibold mb-1">
+                  <span className="text-[11px] text-[#F2C45A] font-mono block font-semibold mb-1.5">
                     {barber.role}
                   </span>
-                  <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
-                    {barber.specialty}
+                  <p className="text-xs text-zinc-300 line-clamp-2 leading-relaxed">
+                    {barber.bio}
                   </p>
                 </div>
               </div>
 
               {/* Footer with Reviews & Compact Booking Button */}
-              <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-between gap-2">
-                <span className="text-[10px] font-mono text-zinc-500">
-                  {barber.reviewsCount}+ avaliações
+              <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between gap-3">
+                <span className="text-[11px] font-mono text-zinc-400">
+                  {barber.reviewsCount}+ clientes
                 </span>
 
-                {/* Compact Appointment Button */}
                 <button
                   id={`agendar-barbeiro-${barber.id}`}
                   onClick={() => onSelectBarber(barber.id)}
-                  className="px-3 py-1.5 rounded-lg bg-[#087FE8] hover:bg-[#0757A5] text-[#F7F7F5] font-bold text-[11px] tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(22,141,224,0.4)] border border-[#087FE8]/40"
+                  className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#D9A52B] to-[#F2C45A] hover:brightness-110 text-[#050806] font-extrabold text-[11px] tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 cursor-pointer shadow-[0_0_12px_rgba(217,165,43,0.3)]"
                 >
                   <span>AGENDAR</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
+
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 {
-  "name": "Barbearia Oscar",
-  "description": "Barbearia Oscar — Cortes precisos, atendimento personalizado e uma experiência criada para quem valoriza cada detalhe.",
+  "name": "Clássico Barber Shop",
+  "description": "Clássico Barber Shop — Referência em Zango 2, Angola. Mais que um corte, uma nova imagem. Tradição, profissionalismo e excelência.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

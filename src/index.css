@@ -2,39 +2,55 @@
 
 @layer base {
   :root {
-    --brand-royal-blue: #082d8c;
-    --brand-electric-blue: #087fe8;
-    --brand-midnight-black: #080a0d;
-    --brand-pure-white: #f7f7f5;
-    --brand-steel-blue: #0757a5;
-    --brand-soft-blue-glow: rgba(22, 141, 224, 0.25);
-    --surface-card: #0d1016;
-    --border-subtle: rgba(7, 87, 165, 0.18);
+    --brand-deep-black: #050806;
+    --brand-classic-gold: #D9A52B;
+    --brand-light-gold: #F2C45A;
+    --brand-pure-white: #FFFFFF;
+    --brand-dark-gray: #171A18;
+    --brand-gold-glow: rgba(217, 165, 43, 0.25);
+    --surface-card: #171A18;
+    --border-subtle: rgba(217, 165, 43, 0.2);
   }
 
   body {
-    background-color: #080a0d;
-    color: #f7f7f5;
+    background-color: #050806;
+    color: #FFFFFF;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   h1, h2, h3, .font-heading {
-    font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.04em;
   }
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle gold scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #080a0d;
+  background: #050806;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0757a5;
+  background: #D9A52B;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #087fe8;
+  background: #F2C45A;
+}
+
+/* Gold gradient utility classes */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F2C45A 0%, #D9A52B 50%, #B38218 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F2C45A 0%, #D9A52B 100%);
+}
+
+.gold-gradient-bg:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F2C45A 50%, #D9A52B 100%);
 }
