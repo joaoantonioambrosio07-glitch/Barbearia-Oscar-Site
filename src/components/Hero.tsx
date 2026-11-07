@@ -121,24 +121,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onViewServices }) => 
           {/* ================= LEFT COLUMN: Brand Statement & Slogan ================= */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             
-            {/* Top Badge with Official Logo Emblem */}
-            <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-[#171A18]/90 backdrop-blur-md border border-[#D9A52B]/40 text-xs text-zinc-200 mb-5 w-fit shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
-              <div className="h-6 w-10 flex items-center justify-center shrink-0">
-                <img
-                  src={BARBERSHOP_CONTACT.logoUrl}
-                  alt="Clássico Barber Shop"
-                  className="h-full w-full object-contain filter drop-shadow-[0_0_4px_rgba(217,165,43,0.6)]"
-                  loading="eager"
-                  decoding="async"
-                  width={40}
-                  height={24}
-                />
-              </div>
-              <span className="font-['Cinzel',serif] text-[11px] font-bold text-[#F2C45A] tracking-wider uppercase">
-                REFERÊNCIA EM ZANGO 2 • ANGOLA
-              </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D9A52B] animate-pulse" />
-            </div>
 
             {/* Slogan Destacado - "Mais que um corte, uma nova imagem." */}
             <h1 className="font-['Cinzel',serif] text-3xl sm:text-5xl lg:text-[3.8rem] font-black text-[#FFFFFF] leading-[1.08] tracking-tight mb-4 uppercase">
